@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Моя страница</title>
+	<script type="text/javascript">
+		function sayHello() {
+		  const name = document.getElementById("nameInput").value;
+		  alert(`Привет, ${name}!`);
+		}
+	</script>
+	<style type="text/css">
+		p.active {
+			background-color: blue;
+			color: white;
+		}
+
+		ul:hover li {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<h1>Основное задание</h1>
+	<p>Введите ваше имя:</p>
+	<input type="text" id="nameInput">
+	<button onclick="sayHello()">Поприветствовать</button>
+
+	<p>Введите ваш возраст:</p>
+	<button onclick="checkAge()">Проверить</button>
+
+	<h1>Дополнительные задания</h1>
+	<p id="colorText">Этот текст можно поменять цвет и содержание</p>
+	<button onclick="changeColorAndText()">Сменить цвет и текст</button>
+
+	<ul>
+		<li>Элемент списка 1</li>
+		<li>Элемент списка 2</li>
+		<li>Элемент списка 3</li>
+	</ul>
+	<button onclick="changeListColor()">Сменить цвет элементов списка</button>
+</body>
+<script type="text/javascript">
+	function checkAge() {
+	  let age = parseInt(prompt('Введите ваш возраст:'));
+	  switch (true) {
+	    case age < 0:
+	      alert('Ошибка: Возраст не может быть отрицательным');
+	      break;
+	    case age >= 0 && age <= 12:
+	      alert('Вы ребенок');
+	      break;
+	    case age > 12 && age <= 18:
+	      alert('Вы подросток');
+	      break;
+	    case age > 18 && age <= 60:
+	      alert('Вы взрослый');
+	      break;
+	    case age > 60:
+	      alert('Вы пожилой человек');
+	      break;
+	    default:
+	      alert('Ошибка: Некорректный ввод');
+	  }
+	}
+
+	function changeColorAndText() {
+		const textElement = document.getElementById("colorText");
+		textElement.style.backgroundColor = "red";
+		textElement.style.color = "white";
+		textElement.innerHTML = "Новый текст и цвет!";
+	}
+
+	function changeListColor() {
+		const listElements = document.getElementsByTagName("li");
+		for (let i = 0; i < listElements.length; i++) {
+			listElements[i].style.backgroundColor = "green";
+			listElements[i].style.color = "white";
+		}
+	}
+</script>
+</html>
